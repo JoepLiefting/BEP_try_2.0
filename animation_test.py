@@ -3,6 +3,10 @@ from matplotlib import pyplot as plt
 import numpy as np
 import matplotlib.animation as animation
 from IPython import display
+import moviepy.editor as mp
+
+gif_name = 'animation_4.gif'
+mp4_name = 'animation_4.mp4'
 
 # initializing a figure
 fig = plt.figure()
@@ -29,8 +33,11 @@ anim = animation.FuncAnimation(fig, animate, frames=1000,
 fig.suptitle('Straight Line plot', fontsize=14)
 
 # saving to m4 using ffmpeg writer
-f = r"C://Users/joepl/PycharmProjects/BEP_try_2.0/Animations/animation_2.gif"
-writergif = animation.PillowWriter(fps=30)
-anim.save(f, writer=writergif)
+f = r"C://Users/joepl/PycharmProjects/BEP_try_2.0/Animations/"+gif_name
+writervideo = animation.PillowWriter(fps=30)
+anim.save(f, writer=writervideo)
 plt.close()
+
+clip = mp.VideoFileClip(f)
+clip.write_videofile(r"C://Users/joepl/PycharmProjects/BEP_try_2.0/Animations/"+mp4_name)
 
