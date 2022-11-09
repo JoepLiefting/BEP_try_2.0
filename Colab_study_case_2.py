@@ -14,7 +14,7 @@ ways = set(itertools.permutations(symbols))
 
 print(f"k={4} vehicles can pick up n={n} customers in {len(ways)} different ways.\n")
 print("# Ways (vehicles are separated by '|'):")
-vrplot.opt.complexity.enumerate_ways(ways)
+vrplot.opt.complexity.enumerate_ways(ways) #vrplot moet import worden
 
 ############################
 
