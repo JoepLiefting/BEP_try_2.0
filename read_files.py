@@ -206,7 +206,7 @@ parallel_number = 1
 #please change it to your own data path
 
 data_path = "Instances/Intermodal_EGS_data_all.xlsx"
-
+coords_path = "Instances/Coordinates.xlsx"
 
 
 #read routes that are unsuitable to barges and trucks
@@ -216,7 +216,7 @@ no_route_barge, no_route_truck = read_no_route()
 
 
 Data = pd.ExcelFile(data_path)
-
+Coordinates = pd.ExcelFile(coords_path)
 
 
 #number of requests, it can be 5, 10, 20, 30, 50, 100 ...
@@ -271,3 +271,11 @@ D, D_origin_All = read_D('D_All', K)
 
 pickup_delivery = R[:, 0:2]
 
+
+#coordinates nodes
+
+Coords = pd.read_excel(Coordinates, 'c')
+Coords = Coords.set_index('t')
+Coords['x'] = Coords['x'].map(names).fillna(Coords['x'])
+Coords['y'] = Coords['y'].map(names).fillna(Coords['y'])
+Coords = Coords.values
