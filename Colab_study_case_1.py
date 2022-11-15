@@ -2,16 +2,16 @@ import os
 import sys
 sys.path.append(os.path.join(os.getcwd(), "vrplot"))
 import vrplot
-
+import moviepy.editor as mp
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import seaborn as sns
 sns.set_style("whitegrid")
-
 import numpy as np
 np.random.seed(42)
-
 import itertools
+
+file_name = 'animation_5'
 
 n_customers = 8
 figsize = (5,5)
@@ -51,5 +51,9 @@ vrplot.animated.show_solutions(
     tsp_sorted_sol[-50:],
     coords,
     nodes,
-    figsize=figsize)
+    figsize=figsize,
+    file_name=file_name)
+
+clip = mp.VideoFileClip(r"C://Users/joepl/PycharmProjects/BEP_try_2.0/Animations/"+file_name+".gif")
+clip.write_videofile(r"C://Users/joepl/PycharmProjects/BEP_try_2.0/Animations/"+file_name+".mp4")
 
