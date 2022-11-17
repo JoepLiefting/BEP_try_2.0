@@ -11,7 +11,7 @@ import numpy as np
 np.random.seed(42)
 import itertools
 
-file_name = 'animation_5'
+file_name = 'animation_10'
 
 n_customers = 8
 figsize = (5,5)
@@ -54,6 +54,6 @@ vrplot.animated.show_solutions(
     figsize=figsize,
     file_name=file_name)
 
-clip = mp.VideoFileClip(r"C://Users/joepl/PycharmProjects/BEP_try_2.0/Animations/"+file_name+".gif")
-clip.write_videofile(r"C://Users/joepl/PycharmProjects/BEP_try_2.0/Animations/"+file_name+".mp4")
+clip = mp.VideoFileClip(r"C://Users/barte/PycharmProjects/BEP_try_2.0/Animations/"+file_name+".gif")
+clip.write_videofile(r"C://Users/barte/PycharmProjects/BEP_try_2.0/Animations/"+file_name+".mp4")
 
