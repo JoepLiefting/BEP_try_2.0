@@ -279,3 +279,5 @@ Coords = Coords.set_index('t')
 Coords['x'] = Coords['x'].map(names).fillna(Coords['x'])
 Coords['y'] = Coords['y'].map(names).fillna(Coords['y'])
 Coords = Coords.values
+
+print(D[2][0][1])
