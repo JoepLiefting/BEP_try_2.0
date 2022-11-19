@@ -327,5 +327,4 @@ fixedK = pd.read_excel(fixed_vehicles, 'FixedK')
 fixedK = fixedK.set_index('K')
 
 
-print(T[2][0][4])
-print(D[2][0][4])
+
