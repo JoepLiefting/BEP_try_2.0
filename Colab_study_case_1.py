@@ -11,7 +11,7 @@ import numpy as np
 np.random.seed(42)
 import itertools
 
-file_name = 'animation_5'
+file_name = 'animation_9'
 
 n_customers = 8
 figsize = (5,5)
