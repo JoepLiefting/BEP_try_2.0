@@ -53,6 +53,43 @@ def read_D(what, K):
 
         return D, D_origin_All, D_origin_barge, D_origin_train, D_origin_truck
 
+def read_T(what, K):
+
+    T_path = "Instances/T_EGS-r.xlsx"
+
+    T_origin_barge = pd.read_excel(T_path, 'Barge')
+    T_origin_train = pd.read_excel(T_path, 'Train')
+    T_origin_truck = pd.read_excel(T_path, 'Truck')
+
+    T_origin_barge = T_origin_barge.set_index('N')
+    T_origin_train = T_origin_train.set_index('N')
+    T_origin_truck = T_origin_truck.set_index('N')
+
+    T_origin_barge = T_origin_barge.values
+    T_origin_train = T_origin_train.values
+    T_origin_truck = T_origin_truck.values
+
+    T = {}
+
+    for k in range(len(K)):
+
+        if K[k, 5] == 1:
+
+            T[k] = T_origin_barge.copy()
+
+        else:
+
+            if K[k, 5] == 2:
+
+                T[k] = T_origin_train.copy()
+
+            else:
+
+                T[k] = T_origin_truck.copy()
+
+    if what == 'T':
+
+        return T
 
 
 def read_R_K(request_number_in_R, what='all'):
@@ -267,6 +304,7 @@ R, R_info, K, R_pool = read_R_K(request_number_in_R)
 #distance between terminals of all vehicles, distance between terminals of trucks
 
 D, D_origin_All = read_D('D_All', K)
+T = read_T('T', K)
 
 pickup_delivery = R[:, 0:2]
 
@@ -289,3 +327,5 @@ fixedK = pd.read_excel(fixed_vehicles, 'FixedK')
 fixedK = fixedK.set_index('K')
 
 
+print(T[2][0][4])
+print(D[2][0][4])
